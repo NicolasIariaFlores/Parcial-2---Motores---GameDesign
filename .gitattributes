@@ -1,0 +1,18 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Archivos específicos de Unity
+*.cs text
+*.shader text
+*.cginc text
+*.txt text
+*.json text
+*.xml text
+*.yaml text
+
+# Binarios de Unity (no tocar line endings)
+*.png binary
+*.jpg binary
+*.fbx binary
+*.prefab merge=unityyamlmerge eol=lf
+*.unity merge=unityyamlmerge eol=lf
