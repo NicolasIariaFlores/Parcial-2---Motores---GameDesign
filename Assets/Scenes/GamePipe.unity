@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 128365276}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.84, y: 11.17, z: 10.097644}
+  m_LocalPosition: {x: 23.55, y: 12.26, z: 10.097644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -190,18 +190,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0016452074, y: -0.054287553}
+  m_Offset: {x: 0.0016450882, y: -0.08141947}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.6666667, y: 2.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5031855, y: 0.6742742}
+  m_Size: {x: 1.3442478, y: 1.5695963}
   m_EdgeRadius: 0
 --- !u!50 &128365279
 Rigidbody2D:
@@ -437,18 +437,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008807659, y: -0.08307719}
+  m_Offset: {x: -0.0052399635, y: -0.055077553}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.6666667, y: 2.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.47414684, y: 0.65791655}
+  m_Size: {x: 1.3096132, y: 1.5699635}
   m_EdgeRadius: 0
 --- !u!114 &279556353
 MonoBehaviour:
@@ -530,13 +530,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279556349}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.56, y: 4.46, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.07, y: 4.47, z: 0.033848222}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1406838300}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1167128222}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &279556356
 MonoBehaviour:
@@ -19784,6 +19784,38 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1167128221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167128222}
+  m_Layer: 0
+  m_Name: -Allies-
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1167128222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167128221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.893918, y: 0.5064373, z: -0.033848222}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 279556355}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1203752397
 GameObject:
   m_ObjectHideFlags: 0
@@ -20176,7 +20208,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -808225533, guid: 789be186a81e94941b6b285042aea8ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -20197,9 +20229,9 @@ Transform:
   m_GameObject: {fileID: 1406838298}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5800009, y: 0.4699998, z: 0}
-  m_LocalScale: {x: 0.61046135, y: 0.61046135, z: 0.61046135}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -1.29, y: 1.06, z: 0}
+  m_LocalScale: {x: 1.27, y: 1.27, z: 1.27}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 279556355}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21012,7 +21044,7 @@ SceneRoots:
   - {fileID: 1287590680}
   - {fileID: 1028673398}
   - {fileID: 1429731657}
+  - {fileID: 1167128222}
   - {fileID: 222509663}
   - {fileID: 1574320185}
-  - {fileID: 279556355}
   - {fileID: 1211519075}
