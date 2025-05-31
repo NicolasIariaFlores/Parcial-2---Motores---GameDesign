@@ -5,6 +5,7 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior
     [SerializeField] private Transform _player;
     [SerializeField] private float _stopDistance = 1.5f;
     [SerializeField] private float _detectionRadius = 3f;
+    public float detectionRadius => _detectionRadius;
     [SerializeField] private int _rayCount = 36;
     [SerializeField] private LayerMask _detectionLayer;
     [SerializeField] private float _smoothTime = 0.14f;
@@ -27,7 +28,6 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior
     }
     public void UpdateBehavior()
     {
-        // c
     }
 
     public void Interact()

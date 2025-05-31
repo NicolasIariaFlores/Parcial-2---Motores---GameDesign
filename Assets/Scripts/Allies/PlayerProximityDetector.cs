@@ -2,20 +2,21 @@ using UnityEngine;
 
 public class PlayerProximityDetector : MonoBehaviour
 {
-    [SerializeField] private float _detectionRadius = 3f;
     [SerializeField] private LayerMask _playerLayer;
-
     private IProximityResponse proximityResponse;
     private bool playerInRange = false;
+    private FollowPlayer _detectionRadius;
 
     private void Start()
     {
         proximityResponse = GetComponent<IProximityResponse>();
+        _detectionRadius = GetComponent<FollowPlayer>();
     }
 
     private void Update()
     {
-        Collider2D player = Physics2D.OverlapCircle(transform.position, _detectionRadius, _playerLayer);
+        float detectionRadius = _detectionRadius.detectionRadius;
+        Collider2D player = Physics2D.OverlapCircle(transform.position, detectionRadius, _playerLayer);
 
         if (player != null && !playerInRange)
         {
