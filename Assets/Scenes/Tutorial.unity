@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 312051398}
   - component: {fileID: 312051397}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6816,7 +6816,7 @@ GameObject:
   - component: {fileID: 1737385674}
   - component: {fileID: 1737385673}
   m_Layer: 0
-  m_Name: rata
+  m_Name: Grata
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
