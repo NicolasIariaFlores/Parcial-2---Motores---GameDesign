@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 5779408}
   - component: {fileID: 5779407}
   m_Layer: 0
-  m_Name: Zombi1 (1)
+  m_Name: Zombi2
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,7 +357,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -1303859223, guid: ff12ef9a146310c41ba0ac48c2b7e8e9, type: 3}
+  m_Sprite: {fileID: -995959741, guid: 08b5eb6b09744054a9a493541245c2d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -22209,7 +22209,7 @@ GameObject:
   - component: {fileID: 1387702596}
   - component: {fileID: 1387702595}
   m_Layer: 0
-  m_Name: Zombi1 (2)
+  m_Name: Zombi3
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22426,7 +22426,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -1303859223, guid: ff12ef9a146310c41ba0ac48c2b7e8e9, type: 3}
+  m_Sprite: {fileID: 1879401362, guid: b97482762c38bc84fb39332e0ef9e310, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
