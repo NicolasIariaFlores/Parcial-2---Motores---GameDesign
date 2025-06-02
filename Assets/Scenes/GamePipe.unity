@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 128365279}
   - component: {fileID: 128365278}
   - component: {fileID: 128365282}
+  - component: {fileID: 128365283}
   m_Layer: 6
   m_Name: Zombiesito
   m_TagString: Player
@@ -153,7 +154,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 16.71, y: -2.53, z: 10.097644}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1429731657}
@@ -190,18 +191,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0016450882, y: -0.08141947}
+  m_Offset: {x: 0.01706922, y: -0.28707197}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.6666667, y: 2.6666667}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3442478, y: 1.5695963}
+  m_Size: {x: 1.0666173, y: 1.5079002}
   m_EdgeRadius: 0
 --- !u!50 &128365279
 Rigidbody2D:
@@ -284,7 +285,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -397728329, guid: 592baf461bc9a014d9b7e7c0359e90a7, type: 3}
+  m_Sprite: {fileID: -748932857, guid: 0e19a4398d9be574cb60c2d8f8796cbe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -307,6 +308,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d4c50409a9ee44f848a559b2b708a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &128365283
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128365276}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 038a850bbc0122c4b8916200ce973d43, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &222509662
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,21 +457,21 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0052399635, y: -0.055077553}
+  m_Offset: {x: 0.005042881, y: -0.28643662}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.6666667, y: 2.6666667}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3096132, y: 1.5699635}
+  m_Size: {x: 1.0216994, y: 1.4774197}
   m_EdgeRadius: 0
 --- !u!114 &279556353
 MonoBehaviour:
@@ -512,8 +534,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -397728329, guid: 592baf461bc9a014d9b7e7c0359e90a7, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.029119253, a: 1}
+  m_Sprite: {fileID: -1303859223, guid: ff12ef9a146310c41ba0ac48c2b7e8e9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -533,7 +555,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -9.02, y: -5.83, z: 0.033848222}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1406838300}
@@ -10778,7 +10800,6 @@ GameObject:
   - component: {fileID: 562376637}
   - component: {fileID: 562376639}
   - component: {fileID: 562376638}
-  - component: {fileID: 562376640}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Obstacle
@@ -13322,51 +13343,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!61 &562376640
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562376636}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 46, y: 29.001528}
-  m_EdgeRadius: 0
 --- !u!1 &635332637
 GameObject:
   m_ObjectHideFlags: 0
@@ -13380,7 +13356,7 @@ GameObject:
   - component: {fileID: 635332639}
   m_Layer: 0
   m_Name: Deco
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13440,7 +13416,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0.00076407194, z: 0}
   m_MaxChunkCount: 16
@@ -17360,7 +17336,7 @@ GameObject:
   - component: {fileID: 1132618745}
   m_Layer: 0
   m_Name: Corte
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22257,7 +22233,7 @@ GameObject:
   - component: {fileID: 1458195472}
   m_Layer: 0
   m_Name: Deco (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
