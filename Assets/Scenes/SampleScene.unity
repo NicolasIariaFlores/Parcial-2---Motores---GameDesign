@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 316402934}
   - component: {fileID: 316402932}
   - component: {fileID: 316402933}
+  - component: {fileID: 316402935}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Player
@@ -301,6 +302,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &316402935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316402928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff589f261b032d640b2699ec9c240481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 5
+  patrolTime: 3
+  patrolDirection: {x: 1, y: 0}
+  patrolSpeed: 2
+  player: {fileID: 316402932}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

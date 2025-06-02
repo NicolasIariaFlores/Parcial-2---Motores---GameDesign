@@ -11,7 +11,19 @@ public class PlayerDetector : MonoBehaviour
 
     private void Update()
     {
-        MoveTo();
+        if (PlayerInRange())
+        {
+            MoveTo();
+        }
+    }
+
+    public bool PlayerInRange()
+    {
+        if (target == null)
+        {
+            return false; 
+        }   
+        return Vector2.Distance(transform.position, target.position) < detectionRadio; 
     }
 
     public void MoveTo()
