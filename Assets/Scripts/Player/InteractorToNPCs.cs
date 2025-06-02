@@ -21,5 +21,13 @@ public class InteractorToNPCs : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            foreach (var npc in allNpcs)
+            {
+                npc.SendToAttack();
+            }
+        }
     }
 }

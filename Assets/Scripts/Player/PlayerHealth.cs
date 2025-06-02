@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour, IDamagable
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth;
     private float health;
@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     public void TakeDamage(float amount)
     {
         health -= amount;
-        Debug.Log("RECIBIO DAÑO " + health); 
+        Debug.Log("RECIBIO DAï¿½O " + health); 
         if (health <= 0)
         {
             Die(); 
