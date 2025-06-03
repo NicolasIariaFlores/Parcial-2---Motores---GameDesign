@@ -6,11 +6,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _movement; 
     [SerializeField] private float _speed;
     private Vector3 originalScale;
-    public Animator animator;
+    private Animator animator;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         originalScale = transform.localScale;
     }
     void Update()
@@ -31,11 +32,21 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
         }
 
+        
+        
         float verticalInput = Input.GetAxisRaw("Vertical");
+        
+
+        if (horizontalInput != 0 || verticalInput != 0)
+        {
+            animator.SetFloat("UltimoX", horizontalInput);
+            animator.SetFloat("UltimoY", verticalInput);
+        }
+
+        animator.SetFloat("Horizontal", horizontalInput);
+        animator.SetFloat("Vertical", verticalInput);
+
         Vector2 direction = new Vector2(horizontalInput, verticalInput).normalized;
-
-        animator.SetFloat("Movement", direction.magnitude); 
-
         transform.Translate(direction * _speed * Time.deltaTime);
     }
 }
