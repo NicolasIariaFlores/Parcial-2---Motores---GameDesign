@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 4
-  animator: {fileID: 0}
+  animator: {fileID: 128365283}
 --- !u!212 &128365281
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26378,6 +26378,10 @@ PrefabInstance:
     - target: {fileID: 7181994234045665896, guid: d01dbe7448e839d438f0e82ec4577623, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181994234045665896, guid: d01dbe7448e839d438f0e82ec4577623, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7181994234045665896, guid: d01dbe7448e839d438f0e82ec4577623, type: 3}
       propertyPath: m_LocalPosition.x
