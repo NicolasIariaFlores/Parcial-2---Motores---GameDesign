@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _movement; 
     [SerializeField] private float _speed;
     private Vector3 originalScale;
+    public Animator animator;
 
     void Start()
     {
@@ -32,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
         float verticalInput = Input.GetAxisRaw("Vertical");
         Vector2 direction = new Vector2(horizontalInput, verticalInput).normalized;
+
+        animator.SetFloat("Speed", direction.magnitude); 
 
         transform.Translate(direction * _speed * Time.deltaTime);
     }
