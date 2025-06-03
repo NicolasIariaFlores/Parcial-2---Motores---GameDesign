@@ -68,7 +68,7 @@ public class EnemyPatrol : MonoBehaviour
         switch (currentState)
         {
             case State.WaitingToPatrol:
-                Debug.Log("Waiting to patrol"); 
+               // Debug.Log("Waiting to patrol"); 
                 timer += Time.deltaTime;
                 if (timer >= waitTime)
                 {
@@ -78,7 +78,7 @@ public class EnemyPatrol : MonoBehaviour
                 break;
 
             case State.Patrol:
-                Debug.Log("Patroling");
+                //Debug.Log("Patroling");
                 transform.Translate(patrolDirection.normalized * patrolSpeed * Time.deltaTime);
                 timer += Time.deltaTime;
                 if (timer >= patrolTime)
@@ -89,7 +89,7 @@ public class EnemyPatrol : MonoBehaviour
                 break;
 
             case State.WaitingToReturn:
-                Debug.Log("Waiting to return");
+                //Debug.Log("Waiting to return");
                 timer += Time.deltaTime;
                 if (timer >= waitTime)
                 {
@@ -99,7 +99,7 @@ public class EnemyPatrol : MonoBehaviour
                 break;
 
             case State.Return:
-                Debug.Log("Returning");
+                //Debug.Log("Returning");
                 Vector3 oppositeDirection = (firstPosition - transform.position).normalized;
                 transform.position += oppositeDirection * patrolSpeed * Time.deltaTime;
 
@@ -111,7 +111,7 @@ public class EnemyPatrol : MonoBehaviour
                 }
                 break;
             case State.Escape:
-                Debug.Log("Escaping!");
+                //Debug.Log("Escaping!");
                 transform.Translate(escapeDirection.normalized * escapeSpeed * Time.deltaTime);
                 timer += Time.deltaTime;
                 if (timer >= escapeTime)

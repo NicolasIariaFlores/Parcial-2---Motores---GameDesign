@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 316402932}
   - component: {fileID: 316402933}
   - component: {fileID: 316402935}
+  - component: {fileID: 316402936}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Player
@@ -319,6 +320,23 @@ MonoBehaviour:
   patrolDirection: {x: 1, y: 0}
   patrolSpeed: 2
   player: {fileID: 316402932}
+  escapeDirection: {x: -1, y: 0}
+  escapeSpeed: 5
+  escapeTime: 10
+--- !u!114 &316402936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316402928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57f9acebedd299458cf355d20b14a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
