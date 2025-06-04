@@ -3,19 +3,20 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float maxHealth;
-    private float health;
+    [SerializeField] private float _maxHealth;
+    private float _health;
+    public float health => _health;
 
     private void Awake()
     {
-        health = maxHealth; 
+        _health = _maxHealth;
     }
 
     public void TakeDamage(float amount)
     {
-        health -= amount;
-        Debug.Log("RECIBIO DAÑO " + health); 
-        if (health <= 0)
+        _health -= amount;
+        Debug.Log("RECIBIO DAÑO " + _health); 
+        if (_health <= 0)
         {
             Die(); 
         }    
