@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class InteractorToNPCs : MonoBehaviour
 {
     private FollowPlayer[] allNpcs;
+    private Transform player;
 
     void Start()
     {
         allNpcs = FindObjectsOfType<FollowPlayer>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -15,12 +18,13 @@ public class InteractorToNPCs : MonoBehaviour
         {
             foreach (var npc in allNpcs)
             {
-                if (npc.CanSeePlayerCircular())
+                if (npc.CanSeePlayer())
                 {
                     npc.Interact();
                 }
             }
         }
+
 
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -29,5 +33,15 @@ public class InteractorToNPCs : MonoBehaviour
                 npc.SendToAttack();
             }
         }
+    }
+
+    private bool CanReachViaNavMesh(Vector3 from, Vector3 to)
+    {
+        NavMeshPath path = new NavMeshPath();
+        if (NavMesh.CalculatePath(from, to, NavMesh.AllAreas, path))
+        {
+            return path.status == NavMeshPathStatus.PathComplete;
+        }
+        return false;
     }
 }

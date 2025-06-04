@@ -1,32 +1,54 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerProximityDetector : MonoBehaviour
 {
     [SerializeField] private LayerMask _playerLayer;
-    private IProximityResponse proximityResponse;
-    private bool playerInRange = false;
-    private FollowPlayer _detectionRadius;
+
+    private IProximityResponse _proximityResponse;
+    private FollowPlayer _followPlayer;
+    private bool _playerInRange = false;
+    private Transform _player;
 
     private void Start()
     {
-        proximityResponse = GetComponent<IProximityResponse>();
-        _detectionRadius = GetComponent<FollowPlayer>();
+        _proximityResponse = GetComponent<IProximityResponse>();
+        _followPlayer = GetComponent<FollowPlayer>();
+        _player = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
     private void Update()
     {
-        float detectionRadius = _detectionRadius.detectionRadius;
-        Collider2D player = Physics2D.OverlapCircle(transform.position, detectionRadius, _playerLayer);
+        float detectionRadius = _followPlayer.detectionRadius;
 
-        if (player != null && !playerInRange)
+        if (_player == null)
+            return;
+
+        float distance = Vector3.Distance(transform.position, _player.position);
+
+        // Primero: ¿está dentro del radio?
+        if (distance <= detectionRadius)
         {
-            playerInRange = true;
-            proximityResponse?.OnPlayerEnter();
+            // Segundo: ¿tiene camino navegable?
+            NavMeshPath path = new NavMeshPath();
+            bool hasPath = NavMesh.CalculatePath(transform.position, _player.position, NavMesh.AllAreas, path)
+                           && path.status == NavMeshPathStatus.PathComplete;
+
+            if (hasPath && !_playerInRange)
+            {
+                _playerInRange = true;
+                _proximityResponse?.OnPlayerEnter();
+            }
+            else if (!hasPath && _playerInRange)
+            {
+                _playerInRange = false;
+                _proximityResponse?.OnPlayerExit();
+            }
         }
-        else if (player == null && playerInRange)
+        else if (_playerInRange)
         {
-            playerInRange = false;
-            proximityResponse?.OnPlayerExit();
+            _playerInRange = false;
+            _proximityResponse?.OnPlayerExit();
         }
     }
 }
