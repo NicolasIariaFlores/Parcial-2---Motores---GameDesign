@@ -7,6 +7,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private float _health;
     public float health => _health;
 
+    [SerializeField] private int sceneToLoad;
+    [SerializeField] private SceneLoader sceneLoader;
+
     private void Awake()
     {
         _health = _maxHealth;
@@ -24,6 +27,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        sceneLoader.LoadSceneByNumber(sceneToLoad); 
         Debug.Log("MURIO"); 
     }
 }

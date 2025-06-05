@@ -221,3 +221,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  sceneToLoad: 4
+  sceneLoader: {fileID: 9098922211802534826, guid: ca35529ac7934cd4a9424016406c754a, type: 3}

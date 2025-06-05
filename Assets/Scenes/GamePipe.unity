@@ -18166,7 +18166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d2dc4b96ce82a45961b170bbd2f95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 2
+  sceneToLoad: 3
   sceneLoader: {fileID: 2066236960}
 --- !u!1 &1527559121
 GameObject:
@@ -27677,50 +27677,74 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 27.5}
   m_EdgeRadius: 0
---- !u!1 &2066236958
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2066236959}
-  - component: {fileID: 2066236960}
-  m_Layer: 0
-  m_Name: SceneManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2066236959
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066236958}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066236960
+--- !u!114 &2066236960 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 9098922211802534826, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+  m_PrefabInstance: {fileID: 574524228085964658}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066236958}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8f9df8a15c28d648b93a15d14e10a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &574524228085964658
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1644725278016598410, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644725278016598410, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644725278016598410, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644725278016598410, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644725278016598410, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644725278016598410, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644725278016598410, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644725278016598410, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644725278016598410, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644725278016598410, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7719462136271920532, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+      propertyPath: m_Name
+      value: SceneManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
 --- !u!1001 &5222288326115408173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27773,6 +27797,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombiesito
       objectReference: {fileID: 0}
+    - target: {fileID: 7708816504379513270, guid: 0b67b695de6408349aeae9e1f2e139e1, type: 3}
+      propertyPath: sceneLoader
+      value: 
+      objectReference: {fileID: 2066236960}
+    - target: {fileID: 7708816504379513270, guid: 0b67b695de6408349aeae9e1f2e139e1, type: 3}
+      propertyPath: sceneToLoad
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27787,7 +27819,7 @@ SceneRoots:
   - {fileID: 1167128222}
   - {fileID: 1211519075}
   - {fileID: 22534467}
-  - {fileID: 2066236959}
+  - {fileID: 574524228085964658}
   - {fileID: 355270838}
   - {fileID: 861654582}
   - {fileID: 854898209}
