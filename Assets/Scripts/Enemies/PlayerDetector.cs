@@ -21,6 +21,7 @@ public class PlayerDetector : MonoBehaviour
     {
         if (target == null)
         {
+            Debug.LogWarning("No tiene un target asignado"); 
             return false; 
         }   
         return Vector2.Distance(transform.position, target.position) < detectionRadio; 

@@ -8,7 +8,9 @@ public class EnemiesSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> enemies;
     [SerializeField] private int enemiesCount;
     [SerializeField] private float spawnCD;
-    [SerializeField] private Transform spawnPoint; 
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Collider2D patrolArea;
+
     private int enemiesSpawned; 
 
     void Start()
@@ -36,6 +38,13 @@ public class EnemiesSpawner : MonoBehaviour
 
         int index = UnityEngine.Random.Range(0, enemies.Count);
         GameObject enemigoSeleccionado = enemies[index];
-        Instantiate(enemigoSeleccionado, transform.position, Quaternion.identity);
+
+        GameObject enemyInstance = Instantiate(enemigoSeleccionado, spawnPoint.position, Quaternion.identity);
+
+        EnemyPatrol patrolScript = enemyInstance.GetComponent<EnemyPatrol>();
+        if (patrolScript != null && patrolArea != null)
+        {
+            patrolScript.SetPatrolArea(patrolArea); 
+        }
     }
 }

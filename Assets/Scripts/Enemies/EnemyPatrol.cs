@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
@@ -10,11 +9,6 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] private float patrolSpeed;
     [SerializeField] private float waitTime; 
 
-    //ELIMINAR?
-    //[SerializeField] private float patrolTime;
-    //[SerializeField] private Vector2 patrolDirection = Vector2.right;
-    //ELIMINAR??
-
     [SerializeField] private PlayerDetector player;
     [SerializeField] private Vector2 escapeDirection = Vector2.left;
     [SerializeField] private float escapeSpeed;
@@ -23,21 +17,18 @@ public class EnemyPatrol : MonoBehaviour
     private Vector3 firstPosition;
     private Vector3 movingTarget;
     private float timer; 
-    //ELIMINAR
-    //private State currentState; 
-    private State previous;
-    //ELIMINAR
 
     private State state = State.Waiting; 
     private bool detectionPause = false; 
-    //private bool isEscaping = false; 
-    private enum State { WaitingToPatrol, Patrol, WaitingToReturn, Return, Escape, Moving, Waiting}
+
+    private enum State {Escape, Moving, Waiting}
 
     void Start()
     {
         firstPosition = transform.position;
         timer = 0f;
-        //currentState = State.WaitingToPatrol;
+        NewTarget();
+        state = State.Waiting; 
     }
 
     void Update()
@@ -45,12 +36,6 @@ public class EnemyPatrol : MonoBehaviour
         if (player.PlayerInRange())
         {
             detectionPause = true; 
-            /*if (!detectionPause)
-            {
-                detectionPause = true;
-                previous = currentState;
-            }*/
-
             return;
         }
 
@@ -59,7 +44,6 @@ public class EnemyPatrol : MonoBehaviour
             detectionPause = false;
             timer = 0f;
             state = State.Waiting; 
-            //currentState = previous;
         }
 
         EnemyMovement();
@@ -67,20 +51,13 @@ public class EnemyPatrol : MonoBehaviour
 
     public void Escape()
     {
-        /* if (!isEscaping)
-         {
-             isEscaping = true;
-             timer = 0f;
-             currentState = State.Escape;
-         }*/
-
         state = State.Escape;
         timer = 0f;
     }
 
     private void EnemyMovement()
     {
-        switch (state )//currentState)
+        switch (state )
         {
             case State.Waiting:
                 timer += Time.deltaTime;
@@ -111,74 +88,20 @@ public class EnemyPatrol : MonoBehaviour
                     timer = 0f;
                 }
                 break;
-
-                /*case State.WaitingToPatrol:
-                   // Debug.Log("Waiting to patrol"); 
-                    timer += Time.deltaTime;
-                    if (timer >= waitTime)
-                    {
-                        timer = 0f;
-                        currentState = State.Patrol; 
-                    }
-                    break;
-
-                case State.Patrol:
-                    //Debug.Log("Patroling");
-                    transform.Translate(patrolDirection.normalized * patrolSpeed * Time.deltaTime);
-                    timer += Time.deltaTime;
-                    if (timer >= patrolTime)
-                    {
-                        timer = 0f;
-                        currentState = State.WaitingToReturn;
-                    }
-                    break;
-
-                case State.WaitingToReturn:
-                    //Debug.Log("Waiting to return");
-                    timer += Time.deltaTime;
-                    if (timer >= waitTime)
-                    {
-                        timer = 0f;
-                        currentState = State.Return;
-                    }
-                    break;
-
-                case State.Return:
-                    //Debug.Log("Returning");
-                    Vector3 oppositeDirection = (firstPosition - transform.position).normalized;
-                    transform.position += oppositeDirection * patrolSpeed * Time.deltaTime;
-
-                    if (Vector3.Distance(transform.position, firstPosition) < 0.1f)
-                    {
-                        transform.position = firstPosition;
-                        timer = 0f;
-                        currentState = State.WaitingToPatrol;
-                    }
-                    break;
-                case State.Escape:
-                    //Debug.Log("Escaping!");
-                    transform.Translate(escapeDirection.normalized * escapeSpeed * Time.deltaTime);
-                    timer += Time.deltaTime;
-                    if (timer >= escapeTime)
-                    {
-                        timer = 0f;
-                        isEscaping = false;
-                        currentState = State.WaitingToPatrol;
-                    }
-                    break;*/
         }
     }
 
     private void MoveTo(Vector3 target, float speed)
     {
         Vector3 dir = (target - transform.position).normalized;
-        transform.position += dir * speed * Time.deltaTime; 
+        transform.position += dir * speed * Time.deltaTime;
+        Debug.DrawLine(transform.position, target, Color.red);
     }
 
     private void NewTarget()
     {
         Vector2 newPoint;
-        int maxTries = 10;
+        int maxTries = 30;
         int tries = 0;
 
         do
@@ -190,8 +113,11 @@ public class EnemyPatrol : MonoBehaviour
         while (!patrolArea.OverlapPoint(newPoint) && tries < maxTries);
 
         movingTarget = newPoint;
-        /*Vector2 randomCircle = Random.insideUnitCircle * patrolRadius;
-        movingTarget = firstPosition + new Vector3(randomCircle.x, randomCircle.y, 0f);*/
+    }
+    
+    public void SetPatrolArea(Collider2D area)
+    {
+        patrolArea = area; 
     }
 
     private void OnDrawGizmosSelected()
