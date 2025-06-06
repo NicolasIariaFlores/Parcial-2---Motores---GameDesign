@@ -18,12 +18,15 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
     private float _lastAttackTime;
     private NavMeshAgent _agent;
 
+    //animator jiji
+    private Animator _animator;
+
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
-        // No hace falta asignar velocidad ni stoppingDistance aquí
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -86,6 +89,18 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
         _state = AllyState.Following;
         _currentTarget = null;
     }
+    private void UpdateAnimations(Vector3 direction)
+    {
+        _animator.SetFloat("MovimientoX", direction.x);
+        _animator.SetFloat("MovimientoY", direction.y);
+
+        if (direction.magnitude > 0.01f)
+        {
+            _animator.SetFloat("UltimoX", direction.x);
+            _animator.SetFloat("UltimoY", direction.y);
+        }
+    }
+
 
     private void Follow()
     {
@@ -94,11 +109,16 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
         {
             _agent.isStopped = false;
             _agent.SetDestination(_player.position);
+
+            Vector3 direction = (_player.position - transform.position).normalized;
+            UpdateAnimations(direction);
         }
         else
         {
             _agent.isStopped = true;
+            UpdateAnimations(Vector3.zero);
         }
+         UpdateAnimations(_agent.velocity.normalized);
     }
 
     private void AttackEnemies()
@@ -114,10 +134,15 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
         {
             _agent.isStopped = false;
             _agent.SetDestination(_currentTarget.position);
+
+            Vector3 direction = (_currentTarget.position - transform.position).normalized;
+            UpdateAnimations(direction);
         }
         else
         {
             _agent.isStopped = true;
+            UpdateAnimations(Vector3.zero);
+
             if (Time.time - _lastAttackTime >= attackCooldown)
             {
                 IDamageable target = _currentTarget.GetComponent<IDamageable>();
@@ -125,9 +150,12 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
                 {
                     target.TakeDamage(damage);
                     _lastAttackTime = Time.time;
+                    //_animator.SetTrigger("Atacar");
                 }
             }
         }
+
+        UpdateAnimations(_agent.velocity.normalized);
     }
 
     private Transform FindNearestReachableEnemy()

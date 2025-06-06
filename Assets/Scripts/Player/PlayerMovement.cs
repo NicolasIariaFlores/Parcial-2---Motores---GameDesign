@@ -3,39 +3,23 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D _rb;
-    private Vector2 _movement; 
     [SerializeField] private float _speed;
-    private Vector3 originalScale;
     private Animator animator;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        originalScale = transform.localScale;
     }
     void Update()
     {
         Move(); 
     }
 
-    public void Move()
+        public void Move()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
-
-        if (horizontalInput < 0)
-        {
-            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
-        }
-        if (horizontalInput > 0)
-        {
-            transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
-        }
-
-        
-        
         float verticalInput = Input.GetAxisRaw("Vertical");
-        
 
         if (horizontalInput != 0 || verticalInput != 0)
         {
@@ -43,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("UltimoY", verticalInput);
         }
 
+        // Actualiza los parámetros para el Animator
         animator.SetFloat("Horizontal", horizontalInput);
         animator.SetFloat("Vertical", verticalInput);
 
