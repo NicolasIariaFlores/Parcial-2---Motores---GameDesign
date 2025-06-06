@@ -9,10 +9,11 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
     [SerializeField] private LayerMask _detectionLayer;
     [SerializeField] private float attackRange = 1f;
     [SerializeField] private float attackCooldown = 1f;
-    [SerializeField] private float damage = 10f;
 
+    //referencias de otros codigos
     private bool _isFollowing = false;
     private AllyState _state = AllyState.Following;
+    private NPCStats _stats;
 
     private Transform _currentTarget;
     private float _lastAttackTime;
@@ -27,6 +28,7 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         _animator = GetComponent<Animator>();
+        _stats = GetComponent<NPCStats>();
     }
 
     private void Update()
@@ -148,7 +150,7 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
                 IDamageable target = _currentTarget.GetComponent<IDamageable>();
                 if (target != null)
                 {
-                    target.TakeDamage(damage);
+                    target.TakeDamage(_stats.Damage);
                     _lastAttackTime = Time.time;
                     //_animator.SetTrigger("Atacar");
                 }
