@@ -7,7 +7,12 @@ public class PlayerDetector : MonoBehaviour
     public Transform target;
     [Tooltip("Radio de deteccion al Player")]
     [SerializeField] private float detectionRadio;
-    [SerializeField] private float speed; 
+    [SerializeField] private float speed;
+
+    private void Start()
+    {
+        
+    }
 
     private void Update()
     {

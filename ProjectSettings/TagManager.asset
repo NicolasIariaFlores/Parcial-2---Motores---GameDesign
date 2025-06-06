@@ -8,6 +8,8 @@ TagManager:
   - Obstacle
   - Enemy
   - HumanLimits
+  - PlayerEscape
+  - KillEnemy
   layers:
   - Default
   - TransparentFX

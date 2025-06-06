@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1129721886147271320}
   - component: {fileID: 6712568197585578074}
-  - component: {fileID: 6936169195653308840}
   - component: {fileID: 3675430866354294820}
   - component: {fileID: 2375499401140890825}
-  - component: {fileID: 3178425313615929772}
   - component: {fileID: 577389148792207410}
+  - component: {fileID: 6936169195653308840}
+  - component: {fileID: 3178425313615929772}
   - component: {fileID: 7708816504379513270}
   m_Layer: 6
   m_Name: Zombiesito
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 1
   m_Sprite: {fileID: -748932857, guid: 0e19a4398d9be574cb60c2d8f8796cbe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -90,19 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6936169195653308840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5043984518622116843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05113f876a26fc54fb91bc7d8e3921e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 4
 --- !u!50 &3675430866354294820
 Rigidbody2D:
   serializedVersion: 4
@@ -175,18 +162,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0666173, y: 1.5079002}
   m_EdgeRadius: 0
---- !u!114 &3178425313615929772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5043984518622116843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5d4c50409a9ee44f848a559b2b708a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &577389148792207410
 Animator:
   serializedVersion: 5
@@ -208,6 +183,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6936169195653308840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5043984518622116843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05113f876a26fc54fb91bc7d8e3921e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 4
+--- !u!114 &3178425313615929772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5043984518622116843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d4c50409a9ee44f848a559b2b708a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7708816504379513270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,4 +222,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   sceneToLoad: 4
-  sceneLoader: {fileID: 9098922211802534826, guid: ca35529ac7934cd4a9424016406c754a, type: 3}
+  sceneLoader: {fileID: 0}

@@ -5,14 +5,24 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 {
     
     [SerializeField] private float maxHealth;
-    [SerializeField]private float currentHealth;
+    [SerializeField] private float currentHealth;
+    [SerializeField] private GameObject zombie; 
     private bool isDead = false;
     private EnemyPatrol patrol;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            TakeDamage(50f);
+        }
+
+    }
     private void Start()
     {
         EnemiesManager.instance?.RegisterEnemy();
     }
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -21,9 +31,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
-        if (isDead) return; 
+        if (isDead) return;
 
         currentHealth -= amount;
+
         if (currentHealth <= 0)
         {
             Die();
@@ -40,8 +51,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private void Die()
     {
         isDead = true;
+        Instantiate(zombie, transform.position, Quaternion.identity); 
         EnemiesManager.instance?.DeregisterEnemy();
-        //LOGICA DE MUERTE 
         Destroy(gameObject); 
     }
 
@@ -52,7 +63,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             TakeDamage(10f); 
         }
 
-        if (collision.CompareTag("HumanLimits"))
+        if (collision.CompareTag("KillEnemy"))
         {
             TakeDamage(maxHealth); 
         }
