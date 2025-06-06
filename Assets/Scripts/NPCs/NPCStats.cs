@@ -10,7 +10,6 @@ public class NPCStats : MonoBehaviour, IDamageable
     public float Damage => _damage;
     private float _currentHealth;
     public float CurrentHealth => _currentHealth;
-
     private AllyHealthBar _healthBar;
     void Start()
     {
