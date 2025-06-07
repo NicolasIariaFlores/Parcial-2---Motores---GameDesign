@@ -6,7 +6,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
-    [SerializeField] private GameObject zombie; 
+    [SerializeField] private GameObject zombie;
+    [SerializeField] private AllyHealthBar healthBar; 
     private bool isDead = false;
     private EnemyPatrol patrol;
 
@@ -27,6 +28,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         currentHealth = maxHealth;
         patrol = GetComponent<EnemyPatrol>();
+        HealthBarControl(); 
     }
 
     public void TakeDamage(float amount)
@@ -35,6 +37,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         currentHealth -= amount;
 
+
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealth(currentHealth, maxHealth);
+        }
         if (currentHealth <= 0)
         {
             Die();
@@ -46,6 +53,15 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             patrol.Escape(); 
         }
         
+    }
+    
+    private void HealthBarControl()
+    {
+        if (healthBar != null)
+        {
+            healthBar.Initialize(transform);
+            healthBar.UpdateHealth(currentHealth, maxHealth);
+        }
     }
 
     private void Die()

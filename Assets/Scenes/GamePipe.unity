@@ -19186,7 +19186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 6540198085078663636, guid: d01dbe7448e839d438f0e82ec4577623, type: 3}
-  enemiesCount: 1
+  enemiesCount: 3
   spawnCD: 10
   spawnPoint: {fileID: 1527559122}
   patrolArea: {fileID: 994339464}
@@ -28978,6 +28978,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 187747254}
+    - target: {fileID: 417622556615927452, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5498511000634579534, guid: 3c646d778d7a1a942803451a42213759, type: 3}
       propertyPath: m_LocalPosition.x
       value: -28

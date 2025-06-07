@@ -11,7 +11,7 @@ public class PlayerDetector : MonoBehaviour
 
     private void Start()
     {
-        
+        FindPlayer(); 
     }
 
     private void Update()
@@ -20,6 +20,19 @@ public class PlayerDetector : MonoBehaviour
         {
             MoveTo();
         }
+    }
+
+    public void FindPlayer()
+    {
+        if (target == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            if (player != null)
+            {
+                target = player.transform; 
+            }
+        } 
     }
 
     public bool PlayerInRange()
