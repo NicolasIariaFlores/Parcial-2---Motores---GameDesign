@@ -18263,11 +18263,11 @@ Transform:
   m_GameObject: {fileID: 1245872467}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70633054, w: 0.70788217}
-  m_LocalPosition: {x: 10.0301, y: -12.8455, z: 0}
-  m_LocalScale: {x: 1.1775746, y: 1.2010857, z: 1}
+  m_LocalPosition: {x: -2, y: -9.63, z: 0}
+  m_LocalScale: {x: 1.1775746, y: 1.2010856, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1860900304}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.874}
 --- !u!483693784 &1245872469
 TilemapRenderer:
@@ -22243,8 +22243,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1245872468}
+  m_Children: []
   m_Father: {fileID: 1211519075}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1860900305
@@ -29055,6 +29054,7 @@ SceneRoots:
   - {fileID: 1429731657}
   - {fileID: 1167128222}
   - {fileID: 1211519075}
+  - {fileID: 1245872468}
   - {fileID: 22534467}
   - {fileID: 574524228085964658}
   - {fileID: 355270838}
