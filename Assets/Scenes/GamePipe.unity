@@ -13981,7 +13981,7 @@ GameObject:
   - component: {fileID: 494746519}
   - component: {fileID: 494746520}
   m_Layer: 0
-  m_Name: '"Upgrade"'
+  m_Name: '"UpgradeGameObject'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
