@@ -13,8 +13,8 @@ public class HealthBar : MonoBehaviour
         maxHealth = playerHealth.health;
     }
 
-    void Update()
+        void Update()
     {
-        rellenoBarraVida.fillAmount = playerHealth.health / maxHealth;
+        rellenoBarraVida.fillAmount = playerHealth.health / playerHealth.MaxHealth;
     }
 }
