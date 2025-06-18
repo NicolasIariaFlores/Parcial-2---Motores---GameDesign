@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
@@ -47,7 +46,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             Die();
             return;
         }
-        Debug.Log("El enemigo recibio daño: " + currentHealth);  
+        Debug.Log("El enemigo recibio daï¿½o: " + currentHealth);  
         if (currentHealth <= maxHealth*0.2f && patrol != null)
         {
             patrol.Escape(); 
@@ -65,12 +64,25 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     }
 
     private void Die()
+{
+    isDead = true;
+
+    // Instanciar Chombi
+    GameObject newAlly = Instantiate(zombie, transform.position, Quaternion.identity);
+
+    // Ver nuevo chombi
+    if (newAlly.TryGetComponent(out FollowPlayer follow))
     {
-        isDead = true;
-        Instantiate(zombie, transform.position, Quaternion.identity); 
-        EnemiesManager.instance?.DeregisterEnemy();
-        Destroy(gameObject); 
+        Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        if (player != null)
+        {
+                follow.SetPlayer(player);
+        }
     }
+
+    EnemiesManager.instance?.DeregisterEnemy();
+    Destroy(gameObject);
+}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

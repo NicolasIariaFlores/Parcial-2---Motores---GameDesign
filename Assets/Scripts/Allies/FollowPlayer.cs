@@ -14,11 +14,11 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
     //AUDIO
     [SerializeField] private AudioClip[] idleClips;
     [SerializeField] private AudioClip[] attackClips;
-    [SerializeField] private float idleSoundMin; 
+    [SerializeField] private float idleSoundMin;
     [SerializeField] private float idleSoundMax;
 
     private float _timeToNextIdleAudioSound;
-    private AudioSource _audioSource; 
+    private AudioSource _audioSource;
 
     //referencias de otros codigos
     private bool _isFollowing = false;
@@ -28,6 +28,7 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
     private Transform _currentTarget;
     private float _lastAttackTime;
     private NavMeshAgent _agent;
+    private float _defaultSpeed;
 
     //animator jiji
     private Animator _animator;
@@ -35,22 +36,23 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _defaultSpeed = _agent.speed;
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         _animator = GetComponent<Animator>();
         _stats = GetComponent<NPCStats>();
         _audioSource = GetComponent<AudioSource>();
-        _timeToNextIdleAudioSound = Time.time + UnityEngine.Random.Range(idleSoundMin, idleSoundMax); 
+        _timeToNextIdleAudioSound = Time.time + UnityEngine.Random.Range(idleSoundMin, idleSoundMax);
     }
 
     private void Update()
     {
-       // if (!_isFollowing) return;
+        // if (!_isFollowing) return;
 
         switch (_state)
         {
             case AllyState.Idle:
-                IdleSoundHandler(); 
+                IdleSoundHandler();
                 break;
             case AllyState.Following:
                 if (_isFollowing)
@@ -78,8 +80,8 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
     public void Interact()
     {
         _isFollowing = true;
-        _state = AllyState.Following; 
-        Debug.Log($"{gameObject.name} ahora está siguiendo al jugador.");   
+        _state = AllyState.Following;
+        Debug.Log($"{gameObject.name} ahora está siguiendo al jugador.");
 
         if (TryGetComponent(out HandleIndicator indicator)) indicator.DisableIndicator();
         if (TryGetComponent(out PlayerProximityDetector detector)) detector.enabled = false;
@@ -136,6 +138,8 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
 
     private void Follow()
     {
+        _agent.speed = _defaultSpeed;
+        _agent.stoppingDistance = 3f;
         float distance = Vector3.Distance(transform.position, _player.position);
         if (distance > _agent.stoppingDistance)
         {
@@ -150,11 +154,14 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
             _agent.isStopped = true;
             UpdateAnimations(Vector3.zero);
         }
-         UpdateAnimations(_agent.velocity.normalized);
+        UpdateAnimations(_agent.velocity.normalized);
     }
 
     private void AttackEnemies()
     {
+        _agent.speed = 3f;
+        _agent.stoppingDistance = 0.5f;
+
         if (_currentTarget == null || !_currentTarget.gameObject.activeInHierarchy)
         {
             ReturnToFollowMode();
@@ -244,4 +251,8 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
         return NavMesh.CalculatePath(transform.position, _player.position, NavMesh.AllAreas, path) &&
                path.status == NavMeshPathStatus.PathComplete;
     }
+    public void SetPlayer(Transform player)
+{
+    _player = player;
+}
 }

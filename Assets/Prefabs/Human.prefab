@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  zombie: {fileID: 5829413365607099801, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+  zombie: {fileID: 9169063202607895491, guid: 6113d68568d1c2f468d7518303c4dcd4, type: 3}
   healthBar: {fileID: 270008835109182457}
 --- !u!114 &6840903614202795634
 MonoBehaviour:

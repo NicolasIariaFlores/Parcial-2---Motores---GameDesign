@@ -1,19 +1,21 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections.Generic;
 
 public class InteractorToNPCs : MonoBehaviour
 {
-    private FollowPlayer[] allNpcs;
+    private List<FollowPlayer> allNpcs = new List<FollowPlayer>();
     private Transform player;
 
     void Start()
     {
-        allNpcs = FindObjectsOfType<FollowPlayer>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
+        UpdateNPClist();
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             foreach (var npc in allNpcs)
@@ -25,7 +27,6 @@ public class InteractorToNPCs : MonoBehaviour
             }
         }
 
-
         if (Input.GetKeyDown(KeyCode.T))
         {
             foreach (var npc in allNpcs)
@@ -35,13 +36,9 @@ public class InteractorToNPCs : MonoBehaviour
         }
     }
 
-    private bool CanReachViaNavMesh(Vector3 from, Vector3 to)
+    private void UpdateNPClist()
     {
-        NavMeshPath path = new NavMeshPath();
-        if (NavMesh.CalculatePath(from, to, NavMesh.AllAreas, path))
-        {
-            return path.status == NavMeshPathStatus.PathComplete;
-        }
-        return false;
+        allNpcs.Clear();
+        allNpcs.AddRange(FindObjectsOfType<FollowPlayer>());
     }
 }
