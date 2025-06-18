@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable, ICanUpgrade
@@ -8,18 +9,51 @@ public class PlayerHealth : MonoBehaviour, IDamageable, ICanUpgrade
     private float _health;
     public float health => _health;
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Color flashColor = Color.white;
+    [SerializeField] private float flashDuration = 0.1f;
+    private Color originalColor;
+
+    [SerializeField] private AudioClip takeDamageAudio;
+    private AudioSource audioSource; 
+
     [SerializeField] private int sceneToLoad;
     [SerializeField] private SceneLoader sceneLoader;
 
     private void Awake()
     {
         _health = _maxHealth;
+        InitPlayer();
+    }
+
+    void InitPlayer()
+    {
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color; 
+        }
+
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null)
+        { 
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     public void TakeDamage(float amount)
     {
         _health -= amount;
+
+        if(audioSource != null && takeDamageAudio != null) 
+        {
+            audioSource.PlayOneShot(takeDamageAudio);
+        }
+        
         Debug.Log("RECIBIO DAÑO " + _health);
+
+        StartCoroutine(FlashEffect());
+
         if (_health <= 0)
         {
             Die();
@@ -41,5 +75,15 @@ public class PlayerHealth : MonoBehaviour, IDamageable, ICanUpgrade
     public void ApplyUpgrade(IUpgradeEffect upgrade)
     {
         upgrade.Apply(this);
+    }
+
+    private IEnumerator FlashEffect()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = flashColor;
+            yield return new WaitForSeconds(flashDuration);
+            spriteRenderer.color = originalColor;
+        }
     }
 }

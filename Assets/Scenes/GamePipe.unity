@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 5779408}
   - component: {fileID: 5779407}
   - component: {fileID: 5779416}
+  - component: {fileID: 5779418}
   m_Layer: 0
   m_Name: Zombi2
   m_TagString: Ally
@@ -375,12 +376,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 187747254}
-  _detectionRadius: 3
+  _detectionRadius: 5
   _detectionLayer:
     serializedVersion: 2
     m_Bits: 576
   attackRange: 1
   attackCooldown: 1
+  idleClips:
+  - {fileID: 8300000, guid: 131ede9a1587cfd4485ac886d503d2a7, type: 3}
+  - {fileID: 8300000, guid: 7ebdda2c2302e894194eaab835d2307c, type: 3}
+  - {fileID: 8300000, guid: eec4049b81a34234b8d6455a1d4b9580, type: 3}
+  attackClips:
+  - {fileID: 8300000, guid: 297d3fe9e23c97d459bf5df7d83c5cde, type: 3}
+  - {fileID: 8300000, guid: ba13071f1575c614b982fccacd8612af, type: 3}
+  - {fileID: 8300000, guid: 183e0b42ea4964b4b9e25969b35b1486, type: 3}
+  idleSoundMin: 5
+  idleSoundMax: 12
 --- !u!114 &5779412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,6 +545,102 @@ CapsuleCollider2D:
   m_Offset: {x: 0.01123476, y: -0.31834173}
   m_Size: {x: 0.8576829, y: 1.4382219}
   m_Direction: 0
+--- !u!82 &5779418
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5779405}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 5
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &22534466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,10 +2790,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3216036288967412048, guid: 0b67b695de6408349aeae9e1f2e139e1, type: 3}
-      propertyPath: upgradeCanvas
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5043984518622116843, guid: 0b67b695de6408349aeae9e1f2e139e1, type: 3}
       propertyPath: m_Name
       value: Zombiesito
@@ -2695,8 +2798,19 @@ PrefabInstance:
       propertyPath: sceneLoader
       value: 
       objectReference: {fileID: 2066236960}
-    m_RemovedComponents:
-    - {fileID: 3216036288967412048, guid: 0b67b695de6408349aeae9e1f2e139e1, type: 3}
+    - target: {fileID: 7708816504379513270, guid: 0b67b695de6408349aeae9e1f2e139e1, type: 3}
+      propertyPath: flashColor.b
+      value: 0.06313931
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708816504379513270, guid: 0b67b695de6408349aeae9e1f2e139e1, type: 3}
+      propertyPath: flashColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708816504379513270, guid: 0b67b695de6408349aeae9e1f2e139e1, type: 3}
+      propertyPath: flashColor.r
+      value: 0.4433962
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22167,6 +22281,7 @@ GameObject:
   - component: {fileID: 1387702596}
   - component: {fileID: 1387702595}
   - component: {fileID: 1387702604}
+  - component: {fileID: 1387702606}
   m_Layer: 0
   m_Name: Zombi3
   m_TagString: Ally
@@ -22267,12 +22382,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 187747254}
-  _detectionRadius: 3
+  _detectionRadius: 5
   _detectionLayer:
     serializedVersion: 2
     m_Bits: 576
   attackRange: 1
   attackCooldown: 1
+  idleClips:
+  - {fileID: 8300000, guid: 131ede9a1587cfd4485ac886d503d2a7, type: 3}
+  - {fileID: 8300000, guid: 7ebdda2c2302e894194eaab835d2307c, type: 3}
+  - {fileID: 8300000, guid: eec4049b81a34234b8d6455a1d4b9580, type: 3}
+  attackClips:
+  - {fileID: 8300000, guid: 297d3fe9e23c97d459bf5df7d83c5cde, type: 3}
+  - {fileID: 8300000, guid: ba13071f1575c614b982fccacd8612af, type: 3}
+  - {fileID: 8300000, guid: 183e0b42ea4964b4b9e25969b35b1486, type: 3}
+  idleSoundMin: 5
+  idleSoundMax: 12
 --- !u!114 &1387702600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22426,6 +22551,102 @@ CapsuleCollider2D:
   m_Offset: {x: 0.01123476, y: -0.31834173}
   m_Size: {x: 0.8576829, y: 1.4382219}
   m_Direction: 0
+--- !u!82 &1387702606
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387702593}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 5
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1390663539
 GameObject:
   m_ObjectHideFlags: 0
@@ -34100,6 +34321,34 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 187747254}
+    - target: {fileID: 84822954225742179, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: idleSoundMax
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 84822954225742179, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: idleSoundMin
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 84822954225742179, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: _detectionRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 84822954225742179, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: attackClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 84822954225742179, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: attackClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 297d3fe9e23c97d459bf5df7d83c5cde, type: 3}
+    - target: {fileID: 84822954225742179, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: attackClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba13071f1575c614b982fccacd8612af, type: 3}
+    - target: {fileID: 84822954225742179, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: attackClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 183e0b42ea4964b4b9e25969b35b1486, type: 3}
     - target: {fileID: 417622556615927452, guid: 3c646d778d7a1a942803451a42213759, type: 3}
       propertyPath: m_FillAmount
       value: 1
@@ -34167,6 +34416,26 @@ PrefabInstance:
     - target: {fileID: 5829413365607099801, guid: 3c646d778d7a1a942803451a42213759, type: 3}
       propertyPath: m_Name
       value: Zombi1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478344428300354667, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478344428300354667, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: MaxDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478344428300354667, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478344428300354667, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478344428300354667, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

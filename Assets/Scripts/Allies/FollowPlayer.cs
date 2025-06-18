@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,9 +11,18 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
     [SerializeField] private float attackRange = 1f;
     [SerializeField] private float attackCooldown = 1f;
 
+    //AUDIO
+    [SerializeField] private AudioClip[] idleClips;
+    [SerializeField] private AudioClip[] attackClips;
+    [SerializeField] private float idleSoundMin; 
+    [SerializeField] private float idleSoundMax;
+
+    private float _timeToNextIdleAudioSound;
+    private AudioSource _audioSource; 
+
     //referencias de otros codigos
     private bool _isFollowing = false;
-    private AllyState _state = AllyState.Following;
+    private AllyState _state = AllyState.Idle;
     private NPCStats _stats;
 
     private Transform _currentTarget;
@@ -29,27 +39,47 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
         _agent.updateUpAxis = false;
         _animator = GetComponent<Animator>();
         _stats = GetComponent<NPCStats>();
+        _audioSource = GetComponent<AudioSource>();
+        _timeToNextIdleAudioSound = Time.time + UnityEngine.Random.Range(idleSoundMin, idleSoundMax); 
     }
 
     private void Update()
     {
-        if (!_isFollowing) return;
+       // if (!_isFollowing) return;
 
         switch (_state)
         {
+            case AllyState.Idle:
+                IdleSoundHandler(); 
+                break;
             case AllyState.Following:
-                Follow();
+                if (_isFollowing)
+                    Follow();
                 break;
             case AllyState.Attacking:
-                AttackEnemies();
+                if (_isFollowing)
+                    AttackEnemies();
                 break;
+        }
+    }
+
+    private void IdleSoundHandler()
+    {
+        if (Time.time >= _timeToNextIdleAudioSound && idleClips.Length > 0)
+        {
+            int index = UnityEngine.Random.Range(0, idleClips.Length);
+            _audioSource.PlayOneShot(idleClips[index]);
+
+            float delay = UnityEngine.Random.Range(idleSoundMin, idleSoundMax);
+            _timeToNextIdleAudioSound = Time.time + delay;
         }
     }
 
     public void Interact()
     {
         _isFollowing = true;
-        Debug.Log($"{gameObject.name} ahora está siguiendo al jugador.");
+        _state = AllyState.Following; 
+        Debug.Log($"{gameObject.name} ahora está siguiendo al jugador.");   
 
         if (TryGetComponent(out HandleIndicator indicator)) indicator.DisableIndicator();
         if (TryGetComponent(out PlayerProximityDetector detector)) detector.enabled = false;
@@ -151,6 +181,8 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
                 if (target != null)
                 {
                     target.TakeDamage(_stats.Damage);
+                    int index = UnityEngine.Random.Range(0, attackClips.Length);
+                    _audioSource.PlayOneShot(attackClips[index]);
                     _lastAttackTime = Time.time;
                     //_animator.SetTrigger("Atacar");
                 }

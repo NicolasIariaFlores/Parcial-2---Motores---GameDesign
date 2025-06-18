@@ -11,6 +11,7 @@ public class NPCStats : MonoBehaviour, IDamageable
     private float _currentHealth;
     public float CurrentHealth => _currentHealth;
     private AllyHealthBar _healthBar;
+
     void Start()
     {
         _currentHealth = _maxHealth;
@@ -41,11 +42,13 @@ public class NPCStats : MonoBehaviour, IDamageable
             Die();
         }
     }
+
     private void Die()
     {
         Debug.Log($"{gameObject.name} murió.");
         gameObject.SetActive(false);
     }
+
     void Update()
 {
     // Test temporal: bajar vida con tecla H

@@ -19,7 +19,7 @@ public class DealDamage : MonoBehaviour
 
     private void DoDamage(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && Time.time - lastDamage >= cd)
+        if (collision.CompareTag("Player") /*|| collision.CompareTag("Ally")*/ && Time.time - lastDamage >= cd)
         {
             PlayerHealth health = collision.GetComponent<PlayerHealth>();
             if (health != null)
