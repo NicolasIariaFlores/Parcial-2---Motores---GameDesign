@@ -18725,7 +18725,7 @@ GameObject:
   - component: {fileID: 585740640}
   - component: {fileID: 585740642}
   m_Layer: 0
-  m_Name: Interactor
+  m_Name: InteractorAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18740,11 +18740,11 @@ Transform:
   m_GameObject: {fileID: 585740638}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.8795, y: -3.4944, z: 0.033848222}
+  m_LocalPosition: {x: -9.345317, y: -1.7929513, z: 0.1408095}
   m_LocalScale: {x: 3.9931283, y: 3.6540956, z: 1.9545296}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1167128222}
+  m_Father: {fileID: 2032519072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &585740640
 MonoBehaviour:
@@ -20864,7 +20864,7 @@ GameObject:
   - component: {fileID: 1001601030}
   - component: {fileID: 1001601029}
   m_Layer: 0
-  m_Name: Interactor
+  m_Name: InteractorMove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20879,11 +20879,11 @@ Transform:
   m_GameObject: {fileID: 1001601027}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1485, y: 6.3782, z: 0.033848222}
+  m_LocalPosition: {x: 8.385682, y: 8.079649, z: 0.1408095}
   m_LocalScale: {x: 9.392609, y: 3.8479853, z: 1.6243079}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1167128222}
+  m_Father: {fileID: 2032519072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1001601029
 BoxCollider2D:
@@ -21774,9 +21774,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1575379170}
-  - {fileID: 1001601028}
-  - {fileID: 585740639}
   - {fileID: 279556355}
   - {fileID: 5779406}
   - {fileID: 1387702594}
@@ -24325,7 +24322,7 @@ GameObject:
   - component: {fileID: 1575379171}
   - component: {fileID: 1575379173}
   m_Layer: 0
-  m_Name: Interactor
+  m_Name: InteractorZombies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24340,11 +24337,11 @@ Transform:
   m_GameObject: {fileID: 1575379169}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.4286, y: 5.31, z: 0.033848222}
+  m_LocalPosition: {x: -4.894418, y: 7.011449, z: 0.1408095}
   m_LocalScale: {x: 2.8891883, y: 1.6243079, z: 1.6243079}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1167128222}
+  m_Father: {fileID: 2032519072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1575379171
 MonoBehaviour:
@@ -35130,6 +35127,40 @@ RectTransform:
   m_AnchoredPosition: {x: 2.181, y: 0.6095}
   m_SizeDelta: {x: -17.3409, y: 0.80248}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2032519071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2032519072}
+  m_Layer: 0
+  m_Name: --Interactors--
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2032519072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032519071}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.3597355, y: -1.1950114, z: -0.1408095}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1575379170}
+  - {fileID: 1001601028}
+  - {fileID: 585740639}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2036990457
 GameObject:
   m_ObjectHideFlags: 0
@@ -35764,6 +35795,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1287590680}
   - {fileID: 1429731657}
+  - {fileID: 2032519072}
   - {fileID: 1167128222}
   - {fileID: 1211519075}
   - {fileID: 1245872468}
