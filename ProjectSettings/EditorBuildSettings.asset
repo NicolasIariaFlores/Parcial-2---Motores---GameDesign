@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/GamePipe.unity
     guid: bb4372f6759aec24380d7b29113720cc
   - enabled: 1
+    path: Assets/Scenes/City.unity
+    guid: ddf261a0457c3e048bafedbcd9d2dca7
+  - enabled: 1
     path: Assets/Scenes/Screens/Win.unity
     guid: 9cc2ccfed6303594698d04bbe587e591
   - enabled: 1

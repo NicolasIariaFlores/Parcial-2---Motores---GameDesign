@@ -22,7 +22,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable, ICanUpgrade
 
     private void Awake()
     {
+        DontDestroyOnLoad(transform.root.gameObject);
         InitPlayer();
+
+        if (GameManager.Instance != null && GameManager.Instance.playerHealth > 0)
+        {
+            _health = GameManager.Instance.playerHealth;
+        }
     }
 
     void InitPlayer()

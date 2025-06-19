@@ -226,7 +226,7 @@ MonoBehaviour:
   flashColor: {r: 0.4433962, g: 0, b: 0.06313931, a: 1}
   flashDuration: 0.1
   takeDamageAudio: {fileID: 8300000, guid: f04e19cd8f2686e409d3197ec779d72a, type: 3}
-  sceneToLoad: 4
+  sceneToLoad: 5
   sceneLoader: {fileID: 0}
 --- !u!82 &1606241217542888077
 AudioSource:
