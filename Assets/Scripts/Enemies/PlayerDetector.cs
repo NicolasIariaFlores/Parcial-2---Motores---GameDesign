@@ -5,7 +5,8 @@ public class PlayerDetector : MonoBehaviour
 {
     public Transform targetP;
     public Transform targetA;
-    [Tooltip("Radio de deteccion al Player")]
+
+    [Tooltip("Radio de deteccion")]
     [SerializeField] private float detectionRadio;
     [SerializeField] private float speed;
 
@@ -16,28 +17,57 @@ public class PlayerDetector : MonoBehaviour
 
     private void Update()
     {
+        FindAllies();
         if (PlayerInRange())
         {
-            MoveToPlayer();
+            MoveToTarget(targetP);
         }
         else if (AllyInRange())
         {
-            MoveToAlly(); 
+            MoveToTarget(targetA); 
         }
     }
 
     public void FindPlayer()
     {
-        if (targetP == null && targetA == null)
+        if (targetP == null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            GameObject ally = GameObject.FindGameObjectWithTag("Ally");
-            if (player != null && ally != null)
+
+            if (player != null)
             {
                 targetP = player.transform;
-                targetA = ally.transform;
             }
         }
+    }
+    public bool PlayerInRange()
+    {
+        if (targetP == null)
+        {
+            Debug.LogWarning("No tiene un target asignado");
+            return false;
+        }
+        return Vector2.Distance(transform.position, targetP.position) < detectionRadio;
+    }
+
+    public void FindAllies()
+    {
+        GameObject[] allies = GameObject.FindGameObjectsWithTag("Ally");
+
+        float minDistance = Mathf.Infinity;
+        Transform nearest = null;
+
+        foreach (GameObject ally in allies)
+        {
+            float distance = Vector2.Distance(transform.position, ally.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearest = ally.transform;
+            }
+        }
+
+        targetA = nearest;
     }
     public bool AllyInRange()
     {
@@ -49,45 +79,18 @@ public class PlayerDetector : MonoBehaviour
         return Vector2.Distance(transform.position, targetA.position) < detectionRadio;
     }
 
-    public bool PlayerInRange()
+    private void MoveToTarget(Transform target)
     {
-        if (targetP == null)
-        {
-            Debug.LogWarning("No tiene un target asignado");
-            return false;
-        }
-        return Vector2.Distance(transform.position, targetP.position) < detectionRadio;
+        if (target == null) return;
+
+        Vector2 direction = (target.position - transform.position).normalized;
+
+        transform.position += (Vector3)(direction * speed * Time.deltaTime);
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
     }
 
-    public void MoveToPlayer()
-    {
-        float distanceToPlayer = Vector2.Distance(transform.position, targetP.position);
-
-        if (distanceToPlayer < detectionRadio)
-        {
-            Vector2 direction = (targetP.position - transform.position).normalized;
-
-            transform.position += (Vector3)(direction * speed * Time.deltaTime);
-
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-        }
-    }
-
-    public void MoveToAlly()
-    {
-        float distanceToAlly = Vector2.Distance(transform.position, targetA.position);
-
-        if (distanceToAlly < detectionRadio)
-        {
-            Vector2 direction = (targetA.position - transform.position).normalized;
-
-            transform.position += (Vector3)(direction * speed * Time.deltaTime);
-
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-        }
-    }
 
     private void OnDrawGizmosSelected()
     {

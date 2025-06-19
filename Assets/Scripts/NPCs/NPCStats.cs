@@ -46,7 +46,8 @@ public class NPCStats : MonoBehaviour, IDamageable
     private void Die()
     {
         Debug.Log($"{gameObject.name} murió.");
-        gameObject.SetActive(false);
+        Destroy(this.gameObject); 
+        //gameObject.SetActive(false);
     }
 
     void Update()
