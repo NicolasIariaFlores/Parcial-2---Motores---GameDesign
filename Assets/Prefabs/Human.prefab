@@ -406,6 +406,7 @@ MonoBehaviour:
   patrolSpeed: 2
   waitTime: 2
   player: {fileID: 8637052662489591021}
+  ally: {fileID: 8637052662489591021}
   escapeDirection: {x: -1, y: 0}
   escapeSpeed: 5
   escapeTime: 10
@@ -421,7 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc173ee5b5360a946b3caad3ba635331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  targetP: {fileID: 0}
+  targetA: {fileID: 0}
   detectionRadio: 3.5
   speed: 3
 --- !u!61 &7312830034144857998
@@ -456,7 +458,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.2845847}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -467,7 +469,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.5691692}
   m_EdgeRadius: 0
 --- !u!50 &6341893756031491820
 Rigidbody2D:

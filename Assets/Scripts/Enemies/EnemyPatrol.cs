@@ -9,7 +9,8 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] private float patrolSpeed;
     [SerializeField] private float waitTime; 
 
-    [SerializeField] private PlayerDetector player;
+    [SerializeField] private PlayerDetector player, ally;
+    //[SerializeField] private PlayerDetector ally;
     [SerializeField] private Vector2 escapeDirection = Vector2.left;
     [SerializeField] private float escapeSpeed;
     [SerializeField] private float escapeTime;
@@ -33,7 +34,7 @@ public class EnemyPatrol : MonoBehaviour
 
     void Update()
     {
-        if (player.PlayerInRange())
+        if (player.PlayerInRange() || ally.AllyInRange())
         {
             detectionPause = true; 
             return;

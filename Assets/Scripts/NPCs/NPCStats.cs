@@ -36,7 +36,7 @@ public class NPCStats : MonoBehaviour, IDamageable
         {
             _healthBar.UpdateHealth(_currentHealth, _maxHealth);
         }
-
+        Debug.Log("El ZOMBIE recibio daño: " + _currentHealth);
         if (_currentHealth <= 0)
         {
             Die();

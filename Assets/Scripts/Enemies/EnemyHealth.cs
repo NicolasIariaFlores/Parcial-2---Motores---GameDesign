@@ -36,7 +36,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         currentHealth -= amount;
 
-
         if (healthBar != null)
         {
             healthBar.UpdateHealth(currentHealth, maxHealth);
@@ -46,7 +45,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             Die();
             return;
         }
-        Debug.Log("El enemigo recibio da�o: " + currentHealth);  
+        Debug.Log("El HUMANO recibio daño: " + currentHealth);  
         if (currentHealth <= maxHealth*0.2f && patrol != null)
         {
             patrol.Escape(); 

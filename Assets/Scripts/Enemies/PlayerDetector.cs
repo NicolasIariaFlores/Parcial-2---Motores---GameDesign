@@ -3,54 +3,84 @@ using UnityEngine;
 
 public class PlayerDetector : MonoBehaviour
 {
-    public Transform target;
+    public Transform targetP;
+    public Transform targetA;
     [Tooltip("Radio de deteccion al Player")]
     [SerializeField] private float detectionRadio;
     [SerializeField] private float speed;
 
     private void Start()
     {
-        FindPlayer(); 
+        FindPlayer();
     }
 
     private void Update()
     {
         if (PlayerInRange())
         {
-            MoveTo();
+            MoveToPlayer();
+        }
+        else if (AllyInRange())
+        {
+            MoveToAlly(); 
         }
     }
 
     public void FindPlayer()
     {
-        if (target == null)
+        if (targetP == null && targetA == null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-            if (player != null)
+            GameObject ally = GameObject.FindGameObjectWithTag("Ally");
+            if (player != null && ally != null)
             {
-                target = player.transform; 
+                targetP = player.transform;
+                targetA = ally.transform;
             }
-        } 
+        }
+    }
+    public bool AllyInRange()
+    {
+        if (targetA == null)
+        {
+            Debug.LogWarning("No tiene un target asignado");
+            return false;
+        }
+        return Vector2.Distance(transform.position, targetA.position) < detectionRadio;
     }
 
     public bool PlayerInRange()
     {
-        if (target == null)
+        if (targetP == null)
         {
-            Debug.LogWarning("No tiene un target asignado"); 
-            return false; 
-        }   
-        return Vector2.Distance(transform.position, target.position) < detectionRadio; 
+            Debug.LogWarning("No tiene un target asignado");
+            return false;
+        }
+        return Vector2.Distance(transform.position, targetP.position) < detectionRadio;
     }
 
-    public void MoveTo()
+    public void MoveToPlayer()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, target.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, targetP.position);
 
         if (distanceToPlayer < detectionRadio)
         {
-            Vector2 direction = (target.position - transform.position).normalized;
+            Vector2 direction = (targetP.position - transform.position).normalized;
+
+            transform.position += (Vector3)(direction * speed * Time.deltaTime);
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+        }
+    }
+
+    public void MoveToAlly()
+    {
+        float distanceToAlly = Vector2.Distance(transform.position, targetA.position);
+
+        if (distanceToAlly < detectionRadio)
+        {
+            Vector2 direction = (targetA.position - transform.position).normalized;
 
             transform.position += (Vector3)(direction * speed * Time.deltaTime);
 

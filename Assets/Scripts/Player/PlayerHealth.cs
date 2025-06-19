@@ -22,12 +22,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable, ICanUpgrade
 
     private void Awake()
     {
-        _health = _maxHealth;
         InitPlayer();
     }
 
     void InitPlayer()
     {
+        _health = _maxHealth;
+
         if (spriteRenderer != null)
         {
             originalColor = spriteRenderer.color; 

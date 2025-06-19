@@ -47,8 +47,6 @@ public class FollowPlayer : MonoBehaviour, INPCBehavior, IEnemyProximityResponse
 
     private void Update()
     {
-        // if (!_isFollowing) return;
-
         switch (_state)
         {
             case AllyState.Idle:

@@ -2475,6 +2475,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1606241217542888077, guid: 0b67b695de6408349aeae9e1f2e139e1, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -4400119997846477131, guid: 631561e728007314d942052ba8948149, type: 2}
     - target: {fileID: 5043984518622116843, guid: 0b67b695de6408349aeae9e1f2e139e1, type: 3}
       propertyPath: m_Name
       value: Zombiesito
@@ -23649,7 +23653,7 @@ AudioSource:
   m_GameObject: {fileID: 1387702593}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4400119997846477131, guid: 631561e728007314d942052ba8948149, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -24253,7 +24257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 6540198085078663636, guid: d01dbe7448e839d438f0e82ec4577623, type: 3}
-  enemiesCount: 3
+  enemiesCount: 1
   spawnCD: 10
   spawnPoint: {fileID: 1527559122}
   patrolArea: {fileID: 994339464}
@@ -35661,11 +35665,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5498511000634579534, guid: 3c646d778d7a1a942803451a42213759, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28
+      value: -16.99
       objectReference: {fileID: 0}
     - target: {fileID: 5498511000634579534, guid: 3c646d778d7a1a942803451a42213759, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.56
+      value: -7.76
       objectReference: {fileID: 0}
     - target: {fileID: 5498511000634579534, guid: 3c646d778d7a1a942803451a42213759, type: 3}
       propertyPath: m_LocalPosition.z
@@ -35719,6 +35723,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8478344428300354667, guid: 3c646d778d7a1a942803451a42213759, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -4400119997846477131, guid: 631561e728007314d942052ba8948149, type: 2}
     - target: {fileID: 8478344428300354667, guid: 3c646d778d7a1a942803451a42213759, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
@@ -35780,6 +35788,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9110855318969160244, guid: 6113d68568d1c2f468d7518303c4dcd4, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -4400119997846477131, guid: 631561e728007314d942052ba8948149, type: 2}
     - target: {fileID: 9169063202607895491, guid: 6113d68568d1c2f468d7518303c4dcd4, type: 3}
       propertyPath: m_Name
       value: Zombi2
