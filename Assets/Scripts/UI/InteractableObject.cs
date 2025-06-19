@@ -14,8 +14,8 @@ public class InteractableObject : MonoBehaviour
             _pressIndicator.SetActive(false);
 
         _interactable = GetComponent<IInteractable>();
-        if (_interactable == null)
-            Debug.LogWarning($"{gameObject.name} no implementa IInteractable.");
+        //if (_interactable == null)
+        //    Debug.LogWarning($"{gameObject.name} no implementa IInteractable.");
     }
 
     private void Update()
