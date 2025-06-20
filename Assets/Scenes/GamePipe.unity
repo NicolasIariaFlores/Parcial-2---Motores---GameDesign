@@ -25167,7 +25167,7 @@ Transform:
   m_GameObject: {fileID: 1429731656}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.641524, y: -2.697131, z: -10.097644}
+  m_LocalPosition: {x: -2.7, y: -2.697131, z: -10.097644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25342,7 +25342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d2dc4b96ce82a45961b170bbd2f95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 4
+  sceneToLoad: 3
   sceneLoader: {fileID: 2066236960}
   spawnPoint: SpawnPoint_City
 --- !u!1 &1511827650
