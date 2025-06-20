@@ -42,11 +42,8 @@ public class PlayerDetector : MonoBehaviour
     }
     public bool PlayerInRange()
     {
-        if (targetP == null)
-        {
-            Debug.LogWarning("No tiene un target asignado");
-            return false;
-        }
+        if (targetP == null) return false;
+
         return Vector2.Distance(transform.position, targetP.position) < detectionRadio;
     }
 
@@ -71,11 +68,8 @@ public class PlayerDetector : MonoBehaviour
     }
     public bool AllyInRange()
     {
-        if (targetA == null)
-        {
-            Debug.LogWarning("No tiene un target asignado");
-            return false;
-        }
+        if (targetA == null) return false;
+
         return Vector2.Distance(transform.position, targetA.position) < detectionRadio;
     }
 
@@ -86,9 +80,6 @@ public class PlayerDetector : MonoBehaviour
         Vector2 direction = (target.position - transform.position).normalized;
 
         transform.position += (Vector3)(direction * speed * Time.deltaTime);
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
     }
 
 
