@@ -15,6 +15,8 @@ public class PlayerProximityDetector : MonoBehaviour
         _proximityResponse = GetComponent<IProximityResponse>();
         _followPlayer = GetComponent<FollowPlayer>();
         _player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        Debug.Log("Player encontrado en esta escena: " + _player);
+        Debug.Log("Detector activo y buscando al jugador.");
     }
 
     private void Update()

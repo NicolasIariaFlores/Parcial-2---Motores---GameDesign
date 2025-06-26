@@ -23,6 +23,7 @@ public class HandleIndicator : MonoBehaviour, IProximityResponse
             if (_fadeCoroutine != null) StopCoroutine(_fadeCoroutine);
             _indicator.SetActive(true);
             _indicator.transform.localScale = _originalScale;
+            Debug.Log("Jugador cerca, activando indicador.");
         }
     }
 
