@@ -301,7 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolArea: {fileID: 7619576029239794317, guid: 673efe5be15e62b45990ecf3f6d03dcf, type: 3}
   patrolRadius: 10
-  patrolSpeed: 1
+  patrolSpeed: 1.5
   waitTime: 2
   player: {fileID: 276133009638437390}
   ally: {fileID: 276133009638437390}

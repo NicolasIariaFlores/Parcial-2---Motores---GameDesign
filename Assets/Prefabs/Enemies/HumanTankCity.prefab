@@ -301,7 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolArea: {fileID: 7619576029239794317, guid: 673efe5be15e62b45990ecf3f6d03dcf, type: 3}
   patrolRadius: 15
-  patrolSpeed: 3
+  patrolSpeed: 2
   waitTime: 2
   player: {fileID: 276133009638437390}
   ally: {fileID: 276133009638437390}
@@ -322,8 +322,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetP: {fileID: 0}
   targetA: {fileID: 0}
-  detectionRadio: 8.5
-  speed: 6
+  detectionRadio: 6
+  speed: 3
 --- !u!61 &1500108534228891974
 BoxCollider2D:
   m_ObjectHideFlags: 0
