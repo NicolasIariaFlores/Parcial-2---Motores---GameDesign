@@ -12,6 +12,15 @@ public class EnemiesSpawner : MonoBehaviour
     [SerializeField] private Collider2D patrolArea;
 
     private int enemiesSpawned; 
+    private int enemiesAlive;
+
+    public static EnemiesSpawner Instance { get; private set; }
+
+
+    private void Awake()
+    {
+        Instance = this; 
+    }
 
     void Start()
     {
@@ -24,6 +33,7 @@ public class EnemiesSpawner : MonoBehaviour
         {
             Spawn();
             enemiesSpawned++;
+            enemiesAlive++; 
             yield return new WaitForSeconds(spawnCD);
         }
     }
@@ -46,5 +56,26 @@ public class EnemiesSpawner : MonoBehaviour
         {
             patrolScript.SetPatrolArea(patrolArea); 
         }
+
+        EnemyHealth enemyScript = enemyInstance.GetComponent<EnemyHealth>();
+        if (enemyScript != null)
+        {
+            enemyScript.onDeath += OnEnemyDeath; 
+        }
+    }
+
+    private void OnEnemyDeath()
+    {
+        enemiesAlive--;
+        if (enemiesAlive <= 0)
+        {
+            Debug.Log("Todso muertos");
+        }
+    }
+
+    public bool AllEnemiesDefeated()
+    {
+        return enemiesAlive <= 0 && enemiesSpawned == enemiesCount;
     }
 }
+

@@ -7,6 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private Slider _loadBar;
     [SerializeField] private GameObject _loadPanel;
+
     public void LoadSceneByNumber(int sceneNumber)
     {
         _loadPanel.SetActive(true);

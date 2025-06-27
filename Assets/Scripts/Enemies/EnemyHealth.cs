@@ -1,4 +1,5 @@
 using UnityEngine;
+using System; 
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
@@ -10,6 +11,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private bool isDead = false;
     private EnemyPatrol patrol;
 
+    public Action onDeath; 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -65,7 +67,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private void Die()
 {
     isDead = true;
-
+        onDeath?.Invoke(); 
     // Instanciar Chombi
     GameObject newAlly = Instantiate(zombie, transform.position, Quaternion.identity);
 

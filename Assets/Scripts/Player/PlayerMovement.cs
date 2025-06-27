@@ -11,13 +11,14 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
+
     void Update()
     {
         if (Time.timeScale == 0f) return;
         Move(); 
     }
 
-        public void Move()
+    public void Move()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
