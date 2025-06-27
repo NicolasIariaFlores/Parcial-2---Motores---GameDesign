@@ -15640,8 +15640,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 6540198085078663636, guid: d01dbe7448e839d438f0e82ec4577623, type: 3}
-  - {fileID: 6088541341765473340, guid: 9699ee10000c09d4c9d7bb107f824bfa, type: 3}
+  - {fileID: 6540198085078663636, guid: 019c3bced2495ad45b86062bebf3417f, type: 3}
+  - {fileID: 6088541341765473340, guid: 00ccdbfa0acfd584cbd9927307c017d0, type: 3}
   enemiesCount: 8
   spawnCD: 15
   spawnPoint: {fileID: 1589498109}

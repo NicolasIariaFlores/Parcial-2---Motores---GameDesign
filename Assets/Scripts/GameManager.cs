@@ -4,10 +4,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
-    public string spawnPoint = "SpawnPoint_City";
     public int playerHealth;
 
+    //TODO
     //CARGAR LISTA DE ZOMBIES 
 
     private void Awake()
