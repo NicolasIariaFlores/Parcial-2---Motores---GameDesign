@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Screens/Lose.unity
     guid: 10cef7fab67b35c499b5fdc84cb6b5ac
+  - enabled: 1
+    path: Assets/Scenes/Screens/LoseCity.unity
+    guid: cd514c807b36f314097226bc7ffe876b
   m_configObjects: {}
